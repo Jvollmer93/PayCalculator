@@ -2,7 +2,13 @@
 let payPrompt = prompt("Please enter your pay per hour", 0);
 let hoursPrompt = prompt("Please enter hours", 0);
 let wage;
-if (hoursPrompt > 40)
+if(hoursPrompt>40){
+	wage = wageCalcOT(payPrompt, hoursPrompt);
+}
+else{
+	wage = wageCalc(payPrompt, hoursPrompt);
+}
+/*if (hoursPrompt > 40)
 {
 	let hoursOT = hoursPrompt - 40;
 	let payOT = payPrompt * 1.5;
@@ -16,6 +22,16 @@ else
 	wage = (hoursPrompt * payPrompt);
 	console.log("Hourly wage: $" + payPrompt);
 	console.log("Hours worked: " + hoursPrompt);
+}*/
+function wageCalc(payPerHour, hours) {
+	let wageFunction;
+	wageFunction = (hours * payPerHour);	
+	return wageFunction;
+}
+function wageCalcOT(payPerHour, hours){
+	let wageFunction;
+	wageFunction = ((hours - 40)*(payPerHour*1.5)) + (40 * payPerHour);
+	return wageFunction;
 }
 /*<hoursPrompt = parseFloat(hoursPrompt);*/
 console.log("Weekly wage: $" + wage);
